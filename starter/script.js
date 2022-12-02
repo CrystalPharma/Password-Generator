@@ -116,3 +116,18 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+//Functions for prompts and alerts
+
+var lengthOfPassword = prompt("How long would you like your password to be?")
+lengthOfPassword = +(lengthOfPassword);
+if (lengthOfPassword < 10) {
+  alert('Password characters need to be more than 10');
+}
+if (lengthOfPassword > 64) {
+  alert('The number inserted has exceed the maximum characters allowed for the generator');
+}
+else {
+  //run function to generate random password generatePassword();
+}
+
