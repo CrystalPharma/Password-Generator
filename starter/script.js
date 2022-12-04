@@ -89,95 +89,10 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-var passwordLength = prompt("How many characters would you include in your password?", 10);
-console.log (passwordLength);
-passwordLength = parseInt(passwordLength);
-console.log (typeof passwordLength);
-if (typeof passwordLength === 'number' && passwordLength >= 10 && passwordLength < 64) {
-} else if (typeof passwordLength === 'number' && passwordLength < 10) {
-  alert("The minimum amount of characters required to produce a strong enough password is 10, please try again!");
-  prompt("How many characters would you include in your password?", 10);
-} else if (typeof passwordLength === 'number' && passwordLength > 64) {
-  alert("The input has exceed the amount of characters allowed for the password generator, please try again!");
-  prompt("How many characters would you include in your password?", 10);
-} else if (typeof passwordLength !== 'number'){
-  alert("The following input is not a number, please try again!");
-  prompt("How many characters would you include in your password?");}
-  
 
-var includeSpecialcharacter = confirm("Would you like to include any special characters?");
-console.log (includeSpecialcharacter);
-var includeNumberCharacter = confirm("Would you like to include any numeric characters?");
-console.log (includeNumberCharacter);
-var includeLowercasedCharacters = confirm("Would you like to include any lower cased characters?");
-console.log (includeLowercasedCharacters);
-var includeUppercasedCharacters = confirm("Would you like to include any upper cased characters?");
-console.log (includeUppercasedCharacters);
-
-// //array of sub-stringed special characters
-// var arrSpecialcharacters = specialCharacters.join("");
-// console.log(specialCharacters.length);//23
-
-// //arr of sub-stringed numeric characters
-// var arrNumericcharacters = numericCharacters.join("");
-// console.log(numericCharacters.length);//10
-
-// //arr of sub-stringed lower case characters
-// var arrLowercasedCharacters = lowerCasedCharacters.join("");
-// console.log(lowerCasedCharacters.length);//26
-
-// //arr of sub-stringed upper case characters
-// var arrUppercasedCharacters = upperCasedCharacters.join("");
-
-// //arr of all types of characters in single array
-// var arrCharac = [specialCharacters,numericCharacters,lowerCasedCharacters,upperCasedCharacters].join(""); //turning inside into "" string
-// console.log(arrCharac.length);
-
-var arrCharac = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
-var arrIncludes = [];//single array with string of all type of Characters
-if (includeSpecialcharacter === true) {
-  arrIncludes = specialCharacters.concat(arrIncludes);
-}
-if (includeLowercasedCharacters === true) {
-   arrIncludes = lowerCasedCharacters.concat(arrIncludes); //store inside [];
-}
-if (includeUppercasedCharacters === true) {
-  arrIncludes = upperCasedCharacters.concat(arrIncludes); //store inside [];
-}
-if (includeNumberCharacter === true) {
-  arrIncludes = numericCharacters.concat(arrIncludes); //store inside [];
-}
 // console.log (arrIncludes);
 
 function getPasswordOptions() {
-  
-    for (let i =0 ; i < passwordLength; i++) {
-      if (includeSpecialcharacter === true && includeNumberCharacter === true && includeLowercasedCharacte === true && includeUppercasedCharacters=== true) {
-        
-      }
-      else if (includeSpecialcharacter === true && includeNumberCharacter === true && includeLowercasedCharacte === true && includeUppercasedCharacters=== false) {
-
-      }
-      else if (includeSpecialcharacter === true && includeNumberCharacter === false && includeLowercasedCharacte === true && includeUppercasedCharacters=== false) {
-        
-      }
-      else if (includeSpecialcharacter === false && includeNumberCharacter === true && includeLowercasedCharacte === true && includeUppercasedCharacters=== false) {
-        
-      }
-      else if (includeSpecialcharacter === false && includeNumberCharacter === false && includeLowercasedCharacte === true && includeUppercasedCharacters=== false) {
-        
-      }
-      else if (includeSpecialcharacter === true && includeNumberCharacter === false && includeLowercasedCharacte === true && includeUppercasedCharacters=== false) {
-        
-      }
-      else if (includeSpecialcharacter === false && includeNumberCharacter === false && includeLowercasedCharacte === true && includeUppercasedCharacters=== true) {
-        
-      }
-      else if (includeSpecialcharacter ===false  && includeNumberCharacter === true && includeLowercasedCharacte === true && includeUppercasedCharacters=== false) {
-        
-      }
-    }
-   
 }
 
 // Function for getting a random element from an array
@@ -189,8 +104,50 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
-
+  var passwordLength = prompt("How many characters would you include in your password?", 10);
+  console.log (passwordLength);
+  passwordLength = parseInt(passwordLength);
+  console.log (typeof passwordLength);
+  if (typeof passwordLength === 'number' && passwordLength >= 10 && passwordLength < 64) {
+  } else if (typeof passwordLength === 'number' && passwordLength < 10) {
+    alert("The minimum amount of characters required to produce a strong enough password is 10, please try again!");
+    prompt("How many characters would you include in your password?", 10);
+  } else if (typeof passwordLength === 'number' && passwordLength > 64) {
+    alert("The input has exceed the amount of characters allowed for the password generator, please try again!");
+    prompt("How many characters would you include in your password?", 10);
+  } else if (typeof passwordLength !== 'number'){
+    alert("The following input is not a number, please try again!");
+    prompt("How many characters would you include in your password?");}
+    
+  
+  var includeSpecialcharacter = confirm("Would you like to include any special characters?");
+  console.log (includeSpecialcharacter);
+  var includeNumberCharacter = confirm("Would you like to include any numeric characters?");
+  console.log (includeNumberCharacter);
+  var includeLowercasedCharacters = confirm("Would you like to include any lower cased characters?");
+  console.log (includeLowercasedCharacters);
+  var includeUppercasedCharacters = confirm("Would you like to include any upper cased characters?");
+  console.log (includeUppercasedCharacters);
+  
+  var arrCharac = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+  var arrIncludes = [];//single array with string of all type of Characters
+  if (includeSpecialcharacter === true) {
+    arrIncludes = specialCharacters.concat(arrIncludes);
+  }
+  if (includeLowercasedCharacters === true) {
+     arrIncludes = lowerCasedCharacters.concat(arrIncludes); //store inside [];
+  }
+  if (includeUppercasedCharacters === true) {
+    arrIncludes = upperCasedCharacters.concat(arrIncludes); //store inside [];
+  }
+  if (includeNumberCharacter === true) {
+    arrIncludes = numericCharacters.concat(arrIncludes); //store inside [];
+  } var password = ""; //store in empty "",
+  for (let i =0 ; i < passwordLength; i++) {
+    var char = getRandom(arrIncludes);
+    password = password + char;
+  }
+ return password;
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
