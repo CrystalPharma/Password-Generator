@@ -96,43 +96,75 @@ var upperCasedCharacters = [
 function getRandom(arr) {
   var random = arr[Math.floor(Math.random() * arr.length)];
   return random;
-} 
+}
 
 
 // Function to generate password with user input
 function generatePassword() {
+  // var passwordLength = prompt("How many characters would you include in your password?", 10);
+  // console.log (passwordLength);
+  // passwordLength = parseInt(passwordLength);
+  // console.log (typeof passwordLength);
+  // if (typeof passwordLength === 'number' && passwordLength >= 10 && passwordLength < 64) {
+
+  // } else if (typeof passwordLength === 'number' && passwordLength < 10) {
+  //   alert("The minimum amount of characters required to produce a strong enough password is 10, please try again!");
+  //   passwordLength  = prompt("How many characters would you include in your password?", 10);
+
+  // } else if (typeof passwordLength === 'number' && passwordLength > 64) {
+  //   alert("The input has exceed the amount of characters allowed for the password generator, please try again!");
+  //   passwordLength  = prompt("How many characters would you include in your password?", 10);
+  // } else if (typeof passwordLength !== 'number'){
+  //   alert("The following input is not a number, please try again!");
+  //   passwordLength  =prompt("How many characters would you include in your password?");}
+  // passwordLength = parseInt(passwordLength);
+
+
+
+  // var passwordLength = prompt("How many characters would you include in your password?", 10);
+  // passwordLength = parseInt(passwordLength);
+  // while (true){
+  //   if (typeof passwordLength === 'number' && passwordLength >= 10 && passwordLength < 64) {
+  //     break
+  //   }
+  //   alert("Wrong length");
+  //   var passwordLength = prompt("How many characters would you include in your password?", 10);
+  //   passwordLength = parseInt(passwordLength);
+  // }
   var passwordLength = prompt("How many characters would you include in your password?", 10);
-  console.log (passwordLength);
   passwordLength = parseInt(passwordLength);
-  console.log (typeof passwordLength);
-  if (typeof passwordLength === 'number' && passwordLength >= 10 && passwordLength < 64) {
-  } else if (typeof passwordLength === 'number' && passwordLength < 10) {
-    alert("The minimum amount of characters required to produce a strong enough password is 10, please try again!");
-    prompt("How many characters would you include in your password?", 10);
-  } else if (typeof passwordLength === 'number' && passwordLength > 64) {
-    alert("The input has exceed the amount of characters allowed for the password generator, please try again!");
-    prompt("How many characters would you include in your password?", 10);
-  } else if (typeof passwordLength !== 'number'){
-    alert("The following input is not a number, please try again!");
-    prompt("How many characters would you include in your password?");}
-    
-  
+  while (typeof passwordLength !== 'number' || passwordLength < 10 || passwordLength >= 64) {
+    alert("Inserted number of characters is not within accepted length *Password length needs to be between 10 - 64");
+    passwordLength = prompt("How many characters would you include in your password?", 10);
+    passwordLength = parseInt(passwordLength);
+  }
+
+
+
   var includeSpecialcharacter = confirm("Would you like to include any special characters?");
-  console.log (includeSpecialcharacter);
+  console.log(includeSpecialcharacter);
   var includeNumberCharacter = confirm("Would you like to include any numeric characters?");
-  console.log (includeNumberCharacter);
+  console.log(includeNumberCharacter);
   var includeLowercasedCharacters = confirm("Would you like to include any lower cased characters?");
-  console.log (includeLowercasedCharacters);
+  console.log(includeLowercasedCharacters);
   var includeUppercasedCharacters = confirm("Would you like to include any upper cased characters?");
-  console.log (includeUppercasedCharacters);
-  
+  console.log(includeUppercasedCharacters);
+  var arrOutcomes = [includeLowercasedCharacters + includeNumberCharacter + includeLowercasedCharacters + includeUppercasedCharacters];
+  while (arrOutcomes === 0) {
+    alert("Invalid input!");
+    includeSpecialcharacter = confirm("Would you like to include any special characters?");
+    includeNumberCharacter = confirm("Would you like to include any numeric characters?");
+    includeLowercasedCharacters = confirm("Would you like to include any lower cased characters?");
+    includeUppercasedCharacters = confirm("Would you like to include any upper cased characters?");
+  }
+
   var arrCharac = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
   var arrIncludes = [];//single array with string of all type of Characters
-  if (includeSpecialcharacter === true) {
+  if (includeSpecialcharacter) {
     arrIncludes = specialCharacters.concat(arrIncludes);
   }
   if (includeLowercasedCharacters === true) {
-     arrIncludes = lowerCasedCharacters.concat(arrIncludes); //store inside [];
+    arrIncludes = lowerCasedCharacters.concat(arrIncludes); //store inside [];
   }
   if (includeUppercasedCharacters === true) {
     arrIncludes = upperCasedCharacters.concat(arrIncludes); //store inside [];
@@ -140,11 +172,11 @@ function generatePassword() {
   if (includeNumberCharacter === true) {
     arrIncludes = numericCharacters.concat(arrIncludes); //store inside [];
   } var password = ""; //store in empty "",
-  for (let i =0 ; i < passwordLength; i++) {
+  for (let i = 0; i < passwordLength; i++) {
     var char = getRandom(arrIncludes);
     password = password + char;
   }
- return password;
+  return password;
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
