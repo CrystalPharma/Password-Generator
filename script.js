@@ -139,8 +139,6 @@ function generatePassword() {
     passwordLength = parseInt(passwordLength);
   }
 
-
-
   var includeSpecialcharacter = confirm("Would you like to include any special characters?");
   console.log(includeSpecialcharacter);
   var includeNumberCharacter = confirm("Would you like to include any numeric characters?");
@@ -160,6 +158,7 @@ function generatePassword() {
     arrOutcomes = includeSpecialcharacter + includeNumberCharacter + includeLowercasedCharacters + includeUppercasedCharacters;
     console.log(arrOutcomes);
   }
+
 
   var arrCharac = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
   var arrIncludes = [];//single array with string of all type of Characters
