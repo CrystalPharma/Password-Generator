@@ -149,13 +149,16 @@ function generatePassword() {
   console.log(includeLowercasedCharacters);
   var includeUppercasedCharacters = confirm("Would you like to include any upper cased characters?");
   console.log(includeUppercasedCharacters);
-  var arrOutcomes = [includeLowercasedCharacters + includeNumberCharacter + includeLowercasedCharacters + includeUppercasedCharacters];
+  var arrOutcomes = includeSpecialcharacter + includeNumberCharacter + includeLowercasedCharacters + includeUppercasedCharacters;
+  console.log(arrOutcomes);
   while (arrOutcomes === 0) {
     alert("Invalid input!");
     includeSpecialcharacter = confirm("Would you like to include any special characters?");
     includeNumberCharacter = confirm("Would you like to include any numeric characters?");
     includeLowercasedCharacters = confirm("Would you like to include any lower cased characters?");
     includeUppercasedCharacters = confirm("Would you like to include any upper cased characters?");
+    arrOutcomes = includeSpecialcharacter + includeNumberCharacter + includeLowercasedCharacters + includeUppercasedCharacters;
+    console.log(arrOutcomes);
   }
 
   var arrCharac = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
